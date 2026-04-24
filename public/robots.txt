@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tmj-community.com/sitemap.xml
