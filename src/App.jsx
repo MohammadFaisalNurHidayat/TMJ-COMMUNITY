@@ -1478,9 +1478,9 @@ const COMMUNITY_GUIDE = [
   },
 ];
 const COMMUNITY_RULES = [
-  "Hormati member lain, jangan bikin suasana chat rusak.",
+  "Ada Ragnamok wajib join ygy bagi yang suka keributan.",
   "Kalau mau promosi, spam, atau share link sensitif, minta izin dulu.",
-  "Masuk voice atau party dengan attitude santai tapi tetap fair.",
+  "Masuk DC atau party kalo lagi ngumpul karena ada ilmu mahal dan ragnamok.",
 ];
 
 /* ── MAIN APP ── */
