@@ -1,3 +1,396 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ════════════════════════════════════════════════════════════════
+   THEME VARIABLES
+════════════════════════════════════════════════════════════════ */
+:root {
+  --c-bg:        #f0f2f8;
+  --c-bg2:       #e8eaf2;
+  --c-card:      #ffffff;
+  --c-border:    #dde1ef;
+  --c-text:      #0f172a;
+  --c-muted:     #5a6481;
+  --c-accent:    #4f46e5;
+  --c-neon:      #4f46e5;
+  --c-cyan:      #0284c7;
+  --c-green:     #059669;
+  --c-red:       #dc2626;
+  --c-grid:      rgba(79,70,229,0.07);
+}
+
+[data-theme="dark"] {
+  --c-bg:        #080b14;
+  --c-bg2:       #0d1220;
+  --c-card:      #111827;
+  --c-border:    #1e2d45;
+  --c-text:      #e8edf5;
+  --c-muted:     #7a8ba8;
+  --c-accent:    #6366f1;
+  --c-neon:      #818cf8;
+  --c-cyan:      #38bdf8;
+  --c-green:     #34d399;
+  --c-red:       #f87171;
+  --c-grid:      rgba(99,102,241,0.06);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   GLOBAL
+════════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  background-color: var(--c-bg) !important;
+  color: var(--c-text) !important;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-muted); }
+
+/* ════════════════════════════════════════════════════════════════
+   TAILWIND THEMED OVERRIDES (solid)
+════════════════════════════════════════════════════════════════ */
+.bg-gaming-bg          { background-color: var(--c-bg)     !important; }
+.bg-gaming-card        { background-color: var(--c-card)   !important; }
+.bg-gaming-accent      { background-color: var(--c-accent) !important; }
+.bg-gaming-neon        { background-color: var(--c-neon)   !important; }
+.bg-gaming-border      { background-color: var(--c-border) !important; }
+
+.text-gaming-text      { color: var(--c-text)   !important; }
+.text-gaming-muted     { color: var(--c-muted)  !important; }
+.text-gaming-accent    { color: var(--c-accent) !important; }
+.text-gaming-neon      { color: var(--c-neon)   !important; }
+.text-gaming-cyan      { color: var(--c-cyan)   !important; }
+.text-gaming-green     { color: var(--c-green)  !important; }
+.text-gaming-red       { color: var(--c-red)    !important; }
+
+.border-gaming-border  { border-color: var(--c-border) !important; }
+.border-gaming-accent  { border-color: var(--c-accent) !important; }
+.border-gaming-neon    { border-color: var(--c-neon)   !important; }
+.border-gaming-cyan    { border-color: var(--c-cyan)   !important; }
+
+/* ════════════════════════════════════════════════════════════════
+   OPACITY VARIANTS (fixes Tailwind opacity-modifier w/ CSS vars)
+════════════════════════════════════════════════════════════════ */
+.bg-gaming-bg\/50  { background-color: color-mix(in srgb, var(--c-bg)     50%, transparent) !important; }
+.bg-gaming-bg\/80  { background-color: color-mix(in srgb, var(--c-bg)     80%, transparent) !important; }
+.bg-gaming-bg\/90  { background-color: color-mix(in srgb, var(--c-bg)     90%, transparent) !important; }
+.bg-gaming-card\/40{ background-color: color-mix(in srgb, var(--c-card)   40%, transparent) !important; }
+.bg-gaming-card\/50{ background-color: color-mix(in srgb, var(--c-card)   50%, transparent) !important; }
+.bg-gaming-card\/70{ background-color: color-mix(in srgb, var(--c-card)   70%, transparent) !important; }
+.bg-gaming-card\/80{ background-color: color-mix(in srgb, var(--c-card)   80%, transparent) !important; }
+.bg-gaming-card\/95{ background-color: color-mix(in srgb, var(--c-card)   95%, transparent) !important; }
+.bg-gaming-accent\/10{ background-color: color-mix(in srgb, var(--c-accent)10%, transparent) !important; }
+.bg-gaming-accent\/20{ background-color: color-mix(in srgb, var(--c-accent)20%, transparent) !important; }
+.bg-gaming-neon\/10{ background-color: color-mix(in srgb, var(--c-neon)   10%, transparent) !important; }
+.bg-gaming-neon\/20{ background-color: color-mix(in srgb, var(--c-neon)   20%, transparent) !important; }
+.bg-gaming-cyan\/10{ background-color: color-mix(in srgb, var(--c-cyan)   10%, transparent) !important; }
+.border-gaming-neon\/50  { border-color: color-mix(in srgb, var(--c-neon)  50%, transparent) !important; }
+.border-gaming-cyan\/50  { border-color: color-mix(in srgb, var(--c-cyan)  50%, transparent) !important; }
+.border-gaming-accent\/20{ border-color: color-mix(in srgb, var(--c-accent)20%, transparent) !important; }
+.border-gaming-accent\/30{ border-color: color-mix(in srgb, var(--c-accent)30%, transparent) !important; }
+.border-gaming-accent\/40{ border-color: color-mix(in srgb, var(--c-accent)40%, transparent) !important; }
+.text-gaming-neon\/20  { color: color-mix(in srgb, var(--c-neon) 20%, transparent) !important; }
+
+/* ════════════════════════════════════════════════════════════════
+   THEMED STRUCTURE ELEMENTS
+════════════════════════════════════════════════════════════════ */
+aside  { background-color: var(--c-card)   !important; border-color: var(--c-border) !important; }
+
+/* Sections use themed bg by default, except those with intentional custom backgrounds */
+section:not(#worlds-card-bg) { background-color: var(--c-bg) !important; }
+
+/* Hero — always dark bg for text readability */
+section#home { background-color: #080b14 !important; }
+
+/* Worlds section — allow transparent/custom backgrounds on cards */
+section#worlds { background-color: var(--c-bg) !important; }
+.worlds-card-img { background-color: transparent !important; }
+
+.section-soft-surface {
+  position: absolute;
+  inset: 0;
+  border-block: 1px solid color-mix(in srgb, var(--c-border) 72%, transparent);
+  background:
+    linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--c-accent) 5%, transparent) 48%, transparent 100%),
+    color-mix(in srgb, var(--c-bg2) 42%, transparent);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .section-soft-surface {
+  border-block-color: color-mix(in srgb, var(--c-border) 64%, transparent);
+  background:
+    linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--c-neon) 7%, transparent) 50%, transparent 100%),
+    color-mix(in srgb, var(--c-card) 32%, transparent);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   DARK-MODE GRID PATTERN (no white lines in dark mode)
+════════════════════════════════════════════════════════════════ */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, var(--c-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--c-grid) 1px, transparent 1px) !important;
+  background-size: 40px 40px;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   PREMIUM ANIMATIONS
+════════════════════════════════════════════════════════════════ */
+@keyframes fadeIn      { from { opacity:0 }                to { opacity:1 } }
+@keyframes fadeOut     { from { opacity:1 }                to { opacity:0 } }
+@keyframes fadeUp      { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+@keyframes scaleUp     { from { opacity:0; transform:scale(0.92) }      to { opacity:1; transform:scale(1) } }
+@keyframes slideInLeft { from { opacity:0; transform:translateX(-20px) } to { opacity:1; transform:translateX(0) } }
+@keyframes float       { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes shimmer     { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+@keyframes pulseBorder { 0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c-accent) 40%,transparent)} 50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--c-accent) 0%,transparent)} }
+@keyframes toastIn     { from{transform:translateY(100%) scale(0.9);opacity:0} to{transform:translateY(0) scale(1);opacity:1} }
+@keyframes loadAnim    { 0%{transform:translateX(-100%)} 100%{transform:translateX(300%)} }
+@keyframes gradShift   { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes orb1        { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(60px,-40px) scale(1.1)} 66%{transform:translate(-40px,30px) scale(0.95)} }
+@keyframes orb2        { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-50px,60px) scale(1.05)} 66%{transform:translate(70px,-30px) scale(0.9)} }
+@keyframes spin-slow   { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes float-character {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); filter: drop-shadow(0 20px 30px rgba(0,0,0,0.55)); }
+  50% { transform: translateY(-18px) rotate(1.5deg) scale(1.03); filter: drop-shadow(0 35px 45px rgba(0,0,0,0.75)); }
+}
+@keyframes float-particles {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-20px) translateX(10px); }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   PARALLAX LAYERS
+════════════════════════════════════════════════════════════════ */
+.parallax-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.parallax-layer {
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger-item.visible { opacity: 1; transform: translateY(0); }
+
+/* ════════════════════════════════════════════════════════════════
+   GLASS MORPHISM COMPONENTS
+════════════════════════════════════════════════════════════════ */
+.glass {
+  background-color: color-mix(in srgb, var(--c-card) 70%, transparent);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  border: 1px solid color-mix(in srgb, var(--c-border) 60%, transparent);
+}
+
+.glass-dark {
+  background-color: rgba(8, 11, 20, 0.7);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   CARD HOVER GLOW (mouse-tracked)
+════════════════════════════════════════════════════════════════ */
+.card-glow {
+  position: relative;
+  overflow: hidden;
+}
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    color-mix(in srgb, var(--c-accent) 8%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.card-glow:hover::before { opacity: 1; }
+
+/* ════════════════════════════════════════════════════════════════
+   SHIMMER SKELETON
+════════════════════════════════════════════════════════════════ */
+.skeleton {
+  background: linear-gradient(90deg, var(--c-border) 25%, color-mix(in srgb,var(--c-border) 60%,transparent) 50%, var(--c-border) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RIPPLE
+════════════════════════════════════════════════════════════════ */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255,255,255,0.15);
+  animation: rippleAnim 0.6s linear;
+  pointer-events: none;
+}
+@keyframes rippleAnim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SCROLLBAR HIDE UTILITY
+════════════════════════════════════════════════════════════════ */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* ════════════════════════════════════════════════════════════════
+   ANIMATED GRADIENT TEXT (safe — only on hero where bg is dark)
+════════════════════════════════════════════════════════════════ */
+.grad-text {
+  background: linear-gradient(135deg, var(--c-neon), var(--c-cyan), var(--c-accent));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 4s ease infinite;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SECTION SEPARATOR
+════════════════════════════════════════════════════════════════ */
+.sep {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--c-border), transparent);
+  opacity: 0.6;
+}
+
+/* Ambient orbs (decorative, behind content) */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+[data-theme="dark"] .orb { opacity: 0.25; }
+
+.world-character {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.world-character-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.55));
+}
+
+.world-character-umamusume {
+  right: -4%;
+  bottom: -16%;
+  width: min(58%, 470px);
+  height: 118%;
+}
+
+.world-character-mlbb {
+  right: 5%;
+  bottom: 4%;
+  width: min(36%, 260px);
+  height: 76%;
+}
+
+.world-character-deltaforce {
+  right: -9%;
+  bottom: -14%;
+  width: min(64%, 620px);
+  height: 118%;
+}
+
+.world-character-hsr {
+  right: -2%;
+  bottom: -16%;
+  width: min(66%, 680px);
+  height: 122%;
+}
+
+.world-character-freefire {
+  right: 3%;
+  bottom: -10%;
+  width: min(43%, 340px);
+  height: 104%;
+}
+
+@media (max-width: 767px) {
+  .world-character {
+    opacity: 0.8;
+  }
+
+  .world-character-umamusume {
+    right: -24%;
+    bottom: -12%;
+    width: 86%;
+    height: 88%;
+  }
+
+  .world-character-mlbb {
+    right: -6%;
+    bottom: 10%;
+    width: 44%;
+    height: 56%;
+  }
+
+  .world-character-deltaforce {
+    right: -44%;
+    bottom: -12%;
+    width: 112%;
+    height: 78%;
+  }
+
+  .world-character-hsr {
+    right: -48%;
+    bottom: -6%;
+    width: 122%;
+    height: 74%;
+  }
+
+  .world-character-freefire {
+    right: -8%;
+    bottom: -8%;
+    width: 54%;
+    height: 72%;
+  }
+}

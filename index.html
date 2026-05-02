@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
+    <script>
+      (function () {
+        const theme =
+          localStorage.getItem("tmj-theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.style.background = theme === "dark" ? "#0b0f19" : "#f8fafc";
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMJ Community - Komunitas Gamer Aktif</title>
+    <meta
+      name="description"
+      content="TMJ Community - Komunitas trainer game yang solid, kompetitif, dan suportif. Bergabunglah dengan kami di Discord dan WhatsApp!"
+    />
+    <meta
+      name="keywords"
+      content="TMJ, komunitas game, komunitas gamer, mabar, discord gaming, gamer indonesia"
+    />
+    <meta name="author" content="TMJ Community" />
+    <meta name="theme-color" content="#fa233b" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- ── #14 SEO & Open Graph ── -->
-    <title>TMJ Community — Trainer Maxim Jomok</title>
-    <meta name="description" content="TMJ Community — Komunitas trainer game yang solid, kompetitif, dan suportif. Bergabunglah dengan kami di Discord dan WhatsApp!"/>
-    <meta name="keywords"    content="TMJ, Trainer Maxim Jomok, komunitas game, mabar, discord gaming, gamer indonesia"/>
-    <meta name="author"      content="TMJ Community"/>
-    <meta name="theme-color" content="#6366f1"/>
-    <meta name="robots"      content="index, follow"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tmj-community.com/" />
+    <meta property="og:title" content="TMJ Community - Komunitas Gamer Aktif" />
+    <meta
+      property="og:description"
+      content="Komunitas trainer game yang solid, kompetitif, dan suportif. Join Discord & WhatsApp sekarang!"
+    />
+    <meta property="og:image" content="https://tmj-community.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="TMJ Community" />
 
-    <!-- Open Graph (WhatsApp, Facebook, Discord preview) -->
-    <meta property="og:type"        content="website"/>
-    <meta property="og:url"         content="https://tmj-community.com/"/>
-    <meta property="og:title"       content="TMJ Community — Trainer Maxim Jomok"/>
-    <meta property="og:description" content="Komunitas trainer game yang solid, kompetitif, dan suportif. Join Discord & WhatsApp sekarang!"/>
-    <!-- Ganti dengan URL foto preview kamu (1200x630px ideal) -->
-    <meta property="og:image"       content="https://tmj-community.com/og-image.jpg"/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="630"/>
-    <meta property="og:locale"      content="id_ID"/>
-    <meta property="og:site_name"   content="TMJ Community"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TMJ Community - Komunitas Gamer Aktif" />
+    <meta
+      name="twitter:description"
+      content="Komunitas trainer game yang solid, kompetitif, dan suportif."
+    />
+    <meta name="twitter:image" content="https://tmj-community.com/og-image.jpg" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card"        content="summary_large_image"/>
-    <meta name="twitter:title"       content="TMJ Community — Trainer Maxim Jomok"/>
-    <meta name="twitter:description" content="Komunitas trainer game yang solid, kompetitif, dan suportif."/>
-    <meta name="twitter:image"       content="https://tmj-community.com/og-image.jpg"/>
-
-    <!-- PWA -->
-    <meta name="apple-mobile-web-app-capable"    content="yes"/>
-    <meta name="apple-mobile-web-app-title"      content="TMJ"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-    <link rel="apple-touch-icon" href="/icon-192.png"/>
-
-    <!-- ── #12 Favicon ── -->
-    <!-- Opsi A: pakai emoji (default, tidak perlu file tambahan) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text y='.9em' font-size='65' x='50%' text-anchor='middle'>⚔️</text></svg>"/>
-
-    <!-- Opsi B: pakai file gambar kustom (uncomment jika sudah punya file) -->
-    <!-- Taruh file di public/ lalu uncomment baris di bawah ini: -->
-    <!--
-    <link rel="icon"            type="image/png" sizes="32x32" href="/favicon-32.png"/>
-    <link rel="icon"            type="image/png" sizes="16x16" href="/favicon-16.png"/>
-    <link rel="shortcut icon"   href="/favicon.ico"/>
-    -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="TMJ" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   </head>
-  <body>
+  <body style="margin:0; min-height:100vh;">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
